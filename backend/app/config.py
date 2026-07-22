@@ -18,8 +18,8 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7  # 7 days
     
     # Database
-    # Default to local SQLite database in workspace directory
-    DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite:///d:/Projects/TailorCV/resume_tailor.db")
+    # Default to local SQLite database in working directory
+    DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite:///./resume_tailor.db")
     
     # OpenAI Settings
     OPENAI_API_KEY: Optional[str] = os.getenv("OPENAI_API_KEY", "")
