@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cover Letter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;850&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1e293b;
+            background-color: #ffffff;
+            line-height: 1.6;
+            font-size: 11.5pt;
+            padding: 0.75in 0.75in;
+        }
+        .header {
+            margin-bottom: 2.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 1.5rem;
+        }
+        .header h1 {
+            font-size: 24pt;
+            font-weight: 850;
+            color: #0f172a;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+        }
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 9pt;
+            color: #64748b;
+        }
+        .contact-info span {
+            display: flex;
+            align-items: center;
+        }
+        .date {
+            margin-bottom: 2rem;
+            font-weight: 500;
+            color: #475569;
+        }
+        .letter-content {
+            color: #334155;
+            white-space: pre-wrap;
+            margin-bottom: 3rem;
+            text-align: justify;
+        }
+        @media print {
+            body {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>{{ contact_info.name or 'Applicant Name' }}</h1>
+        <div class="contact-info">
+            {% if contact_info.email %}
+                <span>{{ contact_info.email }}</span>
+            {% endif %}
+            {% if contact_info.phone %}
+                <span>{{ contact_info.phone }}</span>
+            {% endif %}
+            {% if contact_info.location %}
+                <span>{{ contact_info.location }}</span>
+            {% endif %}
+            {% if contact_info.website %}
+                <span>{{ contact_info.website }}</span>
+            {% endif %}
+            {% if contact_info.linkedin %}
+                <span>{{ contact_info.linkedin }}</span>
+            {% endif %}
+        </div>
+    </div>
+    
+    <div class="date">
+        {{ date_str }}
+    </div>
+
+    <div class="letter-content">{{ cover_letter_text }}</div>
+</body>
+</html>
